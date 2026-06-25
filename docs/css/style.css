@@ -728,6 +728,9 @@ ul {
   .hero-float-card {
     display: none;
   }
+  .hero-scroll {
+    display: none;
+  }
 }
 
 /* ============================================
