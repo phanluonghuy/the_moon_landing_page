@@ -1,356 +1,450 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nguyễn Thị Như Nguyệt | Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        olive: '#8CB891',
-                        forest: '#4C6C4F',
-                        cornsilk: '#F4F7F4',
-                        earth: '#BC6C25',
-                        tiger: '#DDA15E'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        .glass-nav {
-            background: rgba(40, 54, 24, 0.8);
-            backdrop-filter: blur(8px);
-        }
-    </style>
-</head>
-<body class="bg-cornsilk text-forest font-sans">
+    <title>Nguyễn Thị Như Nguyệt | Event Management Portfolio</title>
+    <meta name="description" content="Portfolio of Nguyễn Thị Như Nguyệt – Event Management professional with 2+ years of experience in Account & Project Management, delivering impactful brand experiences.">
+    <meta name="keywords" content="Event Management, Portfolio, Nguyễn Thị Như Nguyệt, Account Executive, Project Management, Vietnam Events">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-nav text-cornsilk py-4 px-6 transition-all duration-300">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold tracking-tighter uppercase">Nhu Nguyet</a>
-            
-            <!-- Mobile Menu Toggle -->
-            <button id="menu-btn" class="md:hidden focus:outline-none">
-                <i class="fa-solid fa-bars text-2xl"></i>
-            </button>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ==================== LOADING SCREEN ==================== -->
+    <div class="loader" aria-hidden="true">
+        <div class="loader-text">
+            <span style="animation-delay: 0s">N</span><span style="animation-delay: 0.1s">h</span><span style="animation-delay: 0.15s">u</span><span style="animation-delay: 0.25s">&nbsp;</span><span style="animation-delay: 0.3s">N</span><span style="animation-delay: 0.35s">g</span><span style="animation-delay: 0.4s">u</span><span style="animation-delay: 0.45s">y</span><span style="animation-delay: 0.5s">e</span><span style="animation-delay: 0.55s">t</span>
+        </div>
+        <div class="loader-bar">
+            <div class="loader-bar-fill"></div>
+        </div>
+    </div>
+
+    <!-- ==================== CUSTOM CURSOR ==================== -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="nav" id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">Nhu Nguyet</a>
 
             <!-- Desktop Menu -->
-            <ul class="hidden md:flex space-x-8 font-medium">
-                <li><a href="#about" class="hover:text-tiger transition-colors">About</a></li>
-                <li><a href="#skills" class="hover:text-tiger transition-colors">Skills</a></li>
-                <li><a href="#experience" class="hover:text-tiger transition-colors">Experience</a></li>
-                <li><a href="#projects" class="hover:text-tiger transition-colors">Projects</a></li>
-                <li><a href="assets/CV_NGUYENTHINHUNGUYET_EVENT-OPERATION-EXECUTIVE.pdf" target="_blank" class="bg-tiger text-forest px-4 py-2 rounded-full font-bold hover:bg-white transition-all">Download CV</a></li>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link" data-i18n="nav_about">About</a></li>
+                <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Skills</a></li>
+                <li><a href="#experience" class="nav-link" data-i18n="nav_experience">Experience</a></li>
+                <li><a href="#projects" class="nav-link" data-i18n="nav_projects">Projects</a></li>
+                <li><a href="assets/CV_NGUYENTHINHUNGUYET_EVENT-OPERATION-EXECUTIVE.pdf" target="_blank" class="nav-cta" data-i18n="nav_cv">Download CV</a></li>
+                <li>
+                    <button class="lang-switcher" id="lang-switcher" aria-label="Switch language">
+                        <span class="lang-code">EN</span>
+                    </button>
+                </li>
             </ul>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="nav-right-mobile">
+                <button class="lang-switcher lang-switcher-mobile" id="lang-switcher-mobile" aria-label="Switch language">
+                    <span class="lang-code">EN</span>
+                </button>
+                <button class="nav-mobile-btn" id="menu-btn" aria-label="Toggle menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-forest p-6 shadow-xl">
-            <ul class="flex flex-col space-y-4 text-center">
-                <li><a href="#about" class="block py-2">About</a></li>
-                <li><a href="#skills" class="block py-2">Skills</a></li>
-                <li><a href="#experience" class="block py-2">Experience</a></li>
-                <li><a href="#projects" class="block py-2">Projects</a></li>
-                <li><a href="assets/CV_NGUYENTHINHUNGUYET_EVENT-OPERATION-EXECUTIVE.pdf" target="_blank" class="bg-tiger text-forest px-4 py-2 rounded-full inline-block font-bold">Download CV</a></li>
+        <div class="mobile-menu" id="mobile-menu">
+            <ul>
+                <li><a href="#about" data-i18n="nav_about">About</a></li>
+                <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
+                <li><a href="#experience" data-i18n="nav_experience">Experience</a></li>
+                <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+                <li><a href="assets/CV_NGUYENTHINHUNGUYET_EVENT-OPERATION-EXECUTIVE.pdf" target="_blank" data-i18n="nav_cv">Download CV</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="min-h-screen flex items-center justify-center pt-20 px-6 bg-forest text-cornsilk">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div class="order-2 md:order-1 space-y-6">
-                <h2 class="text-tiger font-semibold uppercase tracking-widest">Event Management</h2>
-                <h1 class="text-5xl md:text-7xl font-bold leading-tight">Nguyễn Thị Như Nguyệt</h1>
+    <!-- ==================== HERO SECTION ==================== -->
+    <header class="hero" id="hero">
+        <canvas id="particles-canvas"></canvas>
 
-                <div class="flex space-x-4 pt-4">
-                    <a href="#about" class="bg-tiger text-forest px-8 py-3 rounded-full font-bold hover:bg-white transition-all">Who Am I?</a>
-                    <a href="#projects" class="border-2 border-tiger text-tiger px-8 py-3 rounded-full font-bold hover:bg-tiger hover:text-forest transition-all">View Projects</a>
+        <div class="hero-inner">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    <span data-i18n="hero_badge">Event Management</span>
+                </div>
+                <h1 class="hero-title">
+                    Nguyễn Thị<br>
+                    <span class="highlight">Như Nguyệt</span>
+                </h1>
+                <p class="hero-subtitle" data-i18n="hero_subtitle">Crafting memorable brand experiences through seamless event execution, creative vision, and strategic project management.</p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn-primary">
+                        <i class="fa-solid fa-user"></i>
+                        <span data-i18n="hero_btn_about">Who Am I?</span>
+                    </a>
+                    <a href="#projects" class="btn-outline">
+                        <i class="fa-solid fa-eye"></i>
+                        <span data-i18n="hero_btn_projects">View Projects</span>
+                    </a>
                 </div>
             </div>
-            <div class="order-1 md:order-2 flex justify-center">
-                <div class="relative w-72 h-72 md:w-96 md:h-96 rounded-2xl overflow-hidden border-8 border-olive/30 shadow-2xl">
-                    <img src="assets/images/profile.jpg" alt="Nguyễn Thị Như Nguyệt" class="w-full h-full object-cover">
+
+            <div class="hero-visual">
+                <div class="hero-image-wrapper">
+                    <img src="assets/images/profile.jpg" alt="Nguyễn Thị Như Nguyệt - Event Management Professional">
+
+                    <!-- Floating info cards -->
+                    <div class="hero-float-card card-1">
+                        <i class="fa-solid fa-briefcase"></i> <span data-i18n="hero_card_exp">Experience</span>
+                        <span class="stat" data-count="2">2+</span>
+                        <span style="font-size: 0.75rem; opacity: 0.6;" data-i18n="hero_card_years">Years</span>
+                    </div>
+                    <div class="hero-float-card card-2">
+                        <i class="fa-solid fa-star"></i> <span data-i18n="hero_card_proj">Projects</span>
+                        <span class="stat" data-count="15">15+</span>
+                        <span style="font-size: 0.75rem; opacity: 0.6;" data-i18n="hero_card_completed">Completed</span>
+                    </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="hero-scroll">
+            <div class="scroll-mouse"></div>
+            <span data-i18n="hero_scroll">Scroll</span>
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="py-24 px-6 bg-cornsilk">
-        <div class="max-w-4xl mx-auto space-y-16">
-            <div class="text-center">
-                <h2 class="text-4xl font-bold mb-4">Introduce About Myself</h2>
-                <div class="h-1.5 w-24 bg-tiger mx-auto rounded-full"></div>
-            </div>
-            
-            <div class="prose prose-lg text-forest max-w-none text-justify">
-                <p>
-                    My name is <strong>Nguyen Thi Nhu Nguyet</strong>. Born in 2003, I graduated with a degree in Event Management from the University of Finance and Marketing.
-                </p>
-                <p>
-                    With more than two years of experience in the event industry, I have worked primarily in <strong>Account and Project Management</strong> roles, serving as the key liaison between clients and internal teams to ensure seamless project execution and effective collaboration.
-                </p>
-                <p>
-                    One of my greatest achievements is staying committed to my passion for the event industry even after graduation. I continue to pursue this path with dedication, resilience, and enthusiasm, always striving to deliver impactful experiences and grow further within the field.
-                </p>
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label" data-i18n="about_label">Get to Know Me</span>
+                <h2 class="section-title" data-i18n="about_title" data-i18n-html="true">Introduce About <span class="accent">Myself</span></h2>
+                <div class="section-divider"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8 pt-8">
-                <div class="bg-white p-8 rounded-3xl shadow-lg border border-olive/10">
-                    <h3 class="text-2xl font-bold text-olive mb-4 flex items-center">
-                        <i class="fa-solid fa-bullseye mr-3"></i> Personal Goals
-                    </h3>
-                    <p class="text-gray-600">
-                        To me, events are more than just grand stages enhanced by modern technology. An event is a platform where brands can express their values, identity, and unique personality through visual experiences, sound, lighting, and technology.
+            <div class="about-grid">
+                <div class="about-text reveal-left">
+                    <p data-i18n="about_p1" data-i18n-html="true">
+                        My name is <strong>Nguyen Thi Nhu Nguyet</strong>. Born in 2003, I graduated with a degree in Event Management from the University of Finance and Marketing.
+                    </p>
+                    <p data-i18n="about_p2" data-i18n-html="true">
+                        With more than two years of experience in the event industry, I have worked primarily in <strong>Account and Project Management</strong> roles, serving as the key liaison between clients and internal teams to ensure seamless project execution and effective collaboration.
+                    </p>
+                    <p data-i18n="about_p3">
+                        One of my greatest achievements is staying committed to my passion for the event industry even after graduation. I continue to pursue this path with dedication, resilience, and enthusiasm, always striving to deliver impactful experiences and grow further within the field.
                     </p>
                 </div>
-                <div class="bg-white p-8 rounded-3xl shadow-lg border border-olive/10">
-                    <h3 class="text-2xl font-bold text-olive mb-4 flex items-center">
-                        <i class="fa-solid fa-compass mr-3"></i> Career Orientation
-                    </h3>
-                    <p class="text-gray-600">
-                        I aspire to work in a professional environment where I can learn from experienced industry leaders while continuously enhancing essential soft skills such as time management, crisis handling, and creative thinking.
-                    </p>
+
+                <div class="about-cards">
+                    <div class="about-card reveal-right delay-1">
+                        <div class="about-card-icon">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3 data-i18n="about_goals_title">Personal Goals</h3>
+                        <p data-i18n="about_goals_desc">To me, events are more than just grand stages enhanced by modern technology. An event is a platform where brands can express their values, identity, and unique personality through visual experiences, sound, lighting, and technology.</p>
+                    </div>
+                    <div class="about-card reveal-right delay-3">
+                        <div class="about-card-icon">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <h3 data-i18n="about_career_title">Career Orientation</h3>
+                        <p data-i18n="about_career_desc">I aspire to work in a professional environment where I can learn from experienced industry leaders while continuously enhancing essential soft skills such as time management, crisis handling, and creative thinking.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-24 px-6 bg-olive text-cornsilk">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4">Software & Tools Proficiency</h2>
-                <div class="h-1.5 w-24 bg-tiger mx-auto rounded-full"></div>
+    <!-- ==================== SKILLS SECTION ==================== -->
+    <section id="skills" class="section skills">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label" data-i18n="skills_label">What I Use</span>
+                <h2 class="section-title" data-i18n="skills_title" data-i18n-html="true">Software & Tools <span class="accent">Proficiency</span></h2>
+                <div class="section-divider"></div>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-center">
-                <div class="p-6 bg-forest/50 rounded-2xl border border-cornsilk/10 hover:border-tiger transition-all">
-                    <i class="fa-brands fa-microsoft text-4xl mb-4 text-[#EA3E23]"></i>
-                    <p class="font-bold">Office 365</p>
+            <div class="tools-grid">
+                <div class="tool-card reveal-scale delay-1">
+                    <div class="tool-icon" style="color: #EA3E23;">
+                        <i class="fa-brands fa-microsoft"></i>
+                    </div>
+                    <p>Office 365</p>
                 </div>
-                <div class="p-6 bg-forest/50 rounded-2xl border border-cornsilk/10 hover:border-tiger transition-all">
-                    <i class="fa-brands fa-google text-4xl mb-4 text-[#4285F4]"></i>
-                    <p class="font-bold">Google Workspace</p>
+                <div class="tool-card reveal-scale delay-2">
+                    <div class="tool-icon" style="color: #4285F4;">
+                        <i class="fa-brands fa-google"></i>
+                    </div>
+                    <p>Google Workspace</p>
                 </div>
-                <div class="p-6 bg-forest/50 rounded-2xl border border-cornsilk/10 hover:border-tiger transition-all">
-                    <div class="w-10 h-10 mx-auto mb-4 bg-gradient-to-r from-[#00C4CC] to-[#7D2AE8] text-white rounded flex items-center justify-center font-bold">C</div>
-                    <p class="font-bold">Canva</p>
+                <div class="tool-card reveal-scale delay-3">
+                    <div class="tool-icon-custom" style="background: linear-gradient(135deg, #00C4CC, #7D2AE8); color: white;">C</div>
+                    <p>Canva</p>
                 </div>
-                <div class="p-6 bg-forest/50 rounded-2xl border border-cornsilk/10 hover:border-tiger transition-all">
-                    <div class="w-10 h-10 mx-auto mb-4 bg-[#001E36] text-[#31A8FF] rounded flex items-center justify-center font-bold italic text-xs border border-[#31A8FF]/30">Ps</div>
-                    <p class="font-bold">Adobe Photoshop</p>
+                <div class="tool-card reveal-scale delay-4">
+                    <div class="tool-icon-custom" style="background: #001E36; color: #31A8FF; border: 1px solid rgba(49,168,255,0.3); font-style: italic; font-size: 0.75rem;">Ps</div>
+                    <p>Adobe Photoshop</p>
                 </div>
-                <div class="p-6 bg-forest/50 rounded-2xl border border-cornsilk/10 hover:border-tiger transition-all">
-                    <i class="fa-solid fa-clapperboard text-4xl mb-4 text-gray-800 drop-shadow-md"></i>
-                    <p class="font-bold">CapCut / Video</p>
+                <div class="tool-card reveal-scale delay-5">
+                    <div class="tool-icon" style="color: #333;">
+                        <i class="fa-solid fa-clapperboard"></i>
+                    </div>
+                    <p>CapCut / Video</p>
                 </div>
-
             </div>
 
-            <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="flex items-center space-x-4 p-4 bg-forest/30 rounded-xl">
-                    <i class="fa-solid fa-check-circle text-tiger"></i>
-                    <span>Budget Tracking & Cost Management</span>
+            <div class="skills-list">
+                <div class="skill-item reveal delay-1">
+                    <i class="fa-solid fa-check-circle"></i>
+                    <span data-i18n="skill_1">Budget Tracking & Cost Management</span>
                 </div>
-                <div class="flex items-center space-x-4 p-4 bg-forest/30 rounded-xl">
-                    <i class="fa-solid fa-check-circle text-tiger"></i>
-                    <span>Proposal & Presentation Preparation</span>
+                <div class="skill-item reveal delay-2">
+                    <i class="fa-solid fa-check-circle"></i>
+                    <span data-i18n="skill_2">Proposal & Presentation Preparation</span>
                 </div>
-                <div class="flex items-center space-x-4 p-4 bg-forest/30 rounded-xl">
-                    <i class="fa-solid fa-check-circle text-tiger"></i>
-                    <span>Client Servicing & Project Coordination</span>
+                <div class="skill-item reveal delay-3">
+                    <i class="fa-solid fa-check-circle"></i>
+                    <span data-i18n="skill_3">Client Servicing & Project Coordination</span>
                 </div>
-                <div class="flex items-center space-x-4 p-4 bg-forest/30 rounded-xl">
-                    <i class="fa-solid fa-check-circle text-tiger"></i>
-                    <span>Vendor Management & Negotiation</span>
+                <div class="skill-item reveal delay-1">
+                    <i class="fa-solid fa-check-circle"></i>
+                    <span data-i18n="skill_4">Vendor Management & Negotiation</span>
                 </div>
-                <div class="flex items-center space-x-4 p-4 bg-forest/30 rounded-xl">
-                    <i class="fa-solid fa-check-circle text-tiger"></i>
-                    <span>On-site Event Operations</span>
+                <div class="skill-item reveal delay-2">
+                    <i class="fa-solid fa-check-circle"></i>
+                    <span data-i18n="skill_5">On-site Event Operations</span>
                 </div>
-                <div class="flex items-center space-x-4 p-4 bg-forest/30 rounded-xl">
-                    <i class="fa-solid fa-check-circle text-tiger"></i>
-                    <span>Timeline Management</span>
+                <div class="skill-item reveal delay-3">
+                    <i class="fa-solid fa-check-circle"></i>
+                    <span data-i18n="skill_6">Timeline Management</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="py-24 px-6 bg-cornsilk">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4">Work Experience</h2>
-                <div class="h-1.5 w-24 bg-tiger mx-auto rounded-full"></div>
+    <!-- ==================== EXPERIENCE SECTION ==================== -->
+    <section id="experience" class="section experience">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label" data-i18n="exp_label">My Journey</span>
+                <h2 class="section-title" data-i18n="exp_title" data-i18n-html="true">Work <span class="accent">Experience</span></h2>
+                <div class="section-divider"></div>
             </div>
 
-            <div class="space-y-12">
+            <div class="timeline">
                 <!-- NINA Group -->
-                <div class="relative pl-8 border-l-4 border-olive">
-                    <div class="absolute -left-3 top-0 w-6 h-6 bg-olive rounded-full border-4 border-cornsilk"></div>
-                    <div class="bg-white p-8 rounded-3xl shadow-lg border border-olive/10">
-                        <span class="text-tiger font-bold">May 2025 - June 2026</span>
-                        <h3 class="text-2xl font-bold mt-2 text-forest">NINA Group</h3>
-                        <p class="text-olive font-semibold">Account Executive</p>
-                        <p class="mt-4 text-gray-600 border-t pt-4"><strong>Clients:</strong> OMO Việt Nam, SC VivoCity, Keppel Land, Therabreath, VPBank</p>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-date">
+                            <i class="fa-solid fa-calendar"></i>
+                            <span data-i18n="exp_nina_date">May 2025 – June 2026</span>
+                        </span>
+                        <h3 class="timeline-company">NINA Group</h3>
+                        <p class="timeline-role">Account Executive</p>
+                        <p class="timeline-details" data-i18n="exp_nina_details" data-i18n-html="true">
+                            <strong>Clients:</strong> OMO Việt Nam, SC VivoCity, Keppel Land, Therabreath, VPBank
+                        </p>
                     </div>
                 </div>
 
                 <!-- QMK Group -->
-                <div class="relative pl-8 border-l-4 border-olive">
-                    <div class="absolute -left-3 top-0 w-6 h-6 bg-olive rounded-full border-4 border-cornsilk"></div>
-                    <div class="bg-white p-8 rounded-3xl shadow-lg border border-olive/10">
-                        <span class="text-tiger font-bold">January 2024 - April 2025</span>
-                        <h3 class="text-2xl font-bold mt-2 text-forest">QMK Group</h3>
-                        <p class="text-olive font-semibold">Account Executive</p>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-date">
+                            <i class="fa-solid fa-calendar"></i>
+                            <span data-i18n="exp_qmk_date">January 2024 – April 2025</span>
+                        </span>
+                        <h3 class="timeline-company">QMK Group</h3>
+                        <p class="timeline-role">Account Executive</p>
                     </div>
                 </div>
 
                 <!-- The Right Turn -->
-                <div class="relative pl-8 border-l-4 border-olive">
-                    <div class="absolute -left-3 top-0 w-6 h-6 bg-olive rounded-full border-4 border-cornsilk"></div>
-                    <div class="bg-white p-8 rounded-3xl shadow-lg border border-olive/10">
-                        <span class="text-tiger font-bold">September 2022 - March 2023</span>
-                        <h3 class="text-2xl font-bold mt-2 text-forest">The Right Turn</h3>
-                        <p class="text-olive font-semibold">Communications Team Member</p>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-date">
+                            <i class="fa-solid fa-calendar"></i>
+                            <span data-i18n="exp_trt_date">September 2022 – March 2023</span>
+                        </span>
+                        <h3 class="timeline-company">The Right Turn</h3>
+                        <p class="timeline-role" data-i18n="exp_trt_role">Communications Team Member</p>
                     </div>
                 </div>
 
                 <!-- Apex Multi Media -->
-                <div class="relative pl-8 border-l-4 border-olive">
-                    <div class="absolute -left-3 top-0 w-6 h-6 bg-olive rounded-full border-4 border-cornsilk"></div>
-                    <div class="bg-white p-8 rounded-3xl shadow-lg border border-olive/10">
-                        <span class="text-tiger font-bold">September 2022 - December 2022</span>
-                        <h3 class="text-2xl font-bold mt-2 text-forest">Apex Multi Media</h3>
-                        <p class="text-olive font-semibold">Event Collaborator</p>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-date">
+                            <i class="fa-solid fa-calendar"></i>
+                            <span data-i18n="exp_apex_date">September 2022 – December 2022</span>
+                        </span>
+                        <h3 class="timeline-company">Apex Multi Media</h3>
+                        <p class="timeline-role" data-i18n="exp_apex_role">Event Collaborator</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects & Clients Section -->
-    <section id="projects" class="py-24 px-6 bg-forest text-cornsilk">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4">Clients & Outstanding Projects</h2>
-                <div class="h-1.5 w-24 bg-tiger mx-auto rounded-full"></div>
+    <!-- ==================== PROJECTS SECTION ==================== -->
+    <section id="projects" class="section projects">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label" data-i18n="proj_label">My Work</span>
+                <h2 class="section-title" data-i18n="proj_title" data-i18n-html="true">Clients & Outstanding <span class="accent">Projects</span></h2>
+                <div class="section-divider"></div>
             </div>
 
-            <div class="grid lg:grid-cols-3 gap-12">
+            <div class="projects-layout">
                 <!-- Clients Sidebar -->
-                <div class="lg:col-span-1 space-y-8">
-                    <div class="bg-olive/20 p-8 rounded-3xl border border-cornsilk/10">
-                        <h3 class="text-2xl font-bold mb-6 text-tiger">Trusted By</h3>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="bg-forest px-4 py-2 rounded-lg text-sm border border-cornsilk/20">Unilever</span>
-                            <span class="bg-forest px-4 py-2 rounded-lg text-sm border border-cornsilk/20">Vietnam Airlines</span>
-                            <span class="bg-forest px-4 py-2 rounded-lg text-sm border border-cornsilk/20">BritCham Vietnam</span>
-                            <span class="bg-forest px-4 py-2 rounded-lg text-sm border border-cornsilk/20">Mitsubishi Electric</span>
-                            <span class="bg-forest px-4 py-2 rounded-lg text-sm border border-cornsilk/20">Honda</span>
-                            <span class="bg-forest px-4 py-2 rounded-lg text-sm border border-cornsilk/20">Hisamitsu</span>
-                            <span class="bg-forest px-4 py-2 rounded-lg text-sm border border-cornsilk/20">VFS Global</span>
-                            <span class="bg-forest px-4 py-2 rounded-lg text-sm border border-cornsilk/20">Yazaki Vietnam</span>
-                            <span class="bg-forest px-4 py-2 rounded-lg text-sm border border-cornsilk/20">RMIT Vietnam</span>
-                            <span class="bg-forest px-4 py-2 rounded-lg text-sm border border-cornsilk/20">TikTok Shop</span>
-                            <span class="bg-forest px-4 py-2 rounded-lg text-sm border border-cornsilk/20">OMO Việt Nam</span>
-                            <span class="bg-forest px-4 py-2 rounded-lg text-sm border border-cornsilk/20">SC VivoCity</span>
-                            <span class="bg-forest px-4 py-2 rounded-lg text-sm border border-cornsilk/20">Keppel Land</span>
-                            <span class="bg-forest px-4 py-2 rounded-lg text-sm border border-cornsilk/20">Therabreath</span>
-                            <span class="bg-forest px-4 py-2 rounded-lg text-sm border border-cornsilk/20">VPBank</span>
-                        </div>
+                <div class="clients-panel reveal-left">
+                    <h3 class="clients-title" data-i18n="proj_trusted">Trusted By</h3>
+                    <div class="clients-tags">
+                        <span class="client-tag">Unilever</span>
+                        <span class="client-tag">Vietnam Airlines</span>
+                        <span class="client-tag">BritCham Vietnam</span>
+                        <span class="client-tag">Mitsubishi Electric</span>
+                        <span class="client-tag">Honda</span>
+                        <span class="client-tag">Hisamitsu</span>
+                        <span class="client-tag">VFS Global</span>
+                        <span class="client-tag">Yazaki Vietnam</span>
+                        <span class="client-tag">RMIT Vietnam</span>
+                        <span class="client-tag">TikTok Shop</span>
+                        <span class="client-tag">OMO Việt Nam</span>
+                        <span class="client-tag">SC VivoCity</span>
+                        <span class="client-tag">Keppel Land</span>
+                        <span class="client-tag">Therabreath</span>
+                        <span class="client-tag">VPBank</span>
                     </div>
                 </div>
 
                 <!-- Projects Gallery -->
-                <div class="lg:col-span-2 grid md:grid-cols-2 gap-6">
-                    <!-- Project 1 -->
-                    <div class="group bg-white/5 rounded-2xl overflow-hidden border border-cornsilk/10 hover:border-tiger transition-all">
-                        <div class="h-48 w-full overflow-hidden">
-                            <img src="assets/images/hisamitsu.jpg" alt="30th Anniversary Celebration" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="projects-gallery">
+                    <div class="project-card reveal-scale delay-1">
+                        <div class="project-image">
+                            <img src="assets/images/hisamitsu.jpg" alt="30th Anniversary Celebration - Hisamitsu Vietnam">
+                            <div class="project-image-overlay"></div>
                         </div>
-                        <div class="p-6">
-                            <h4 class="font-bold text-xl mb-2">30th Anniversary Celebration</h4>
-                            <p class="text-gray-400 text-sm">Hisamitsu Vietnam Pharmaceutical - La Vela Saigon Hotel & Phu Quoc</p>
-                        </div>
-                    </div>
-                    <!-- Project 2 -->
-                    <div class="group bg-white/5 rounded-2xl overflow-hidden border border-cornsilk/10 hover:border-tiger transition-all">
-                        <div class="h-48 w-full overflow-hidden">
-                            <img src="assets/images/vna.jpg" alt="Vietnam Airlines Exhibition" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        </div>
-                        <div class="p-6">
-                            <h4 class="font-bold text-xl mb-2">Vietnam Airlines Exhibition</h4>
-                            <p class="text-gray-400 text-sm">ITE HCMC 2024 - September 2024 at SECC</p>
+                        <div class="project-info">
+                            <h4 class="project-title" data-i18n="proj_1_title">30th Anniversary Celebration</h4>
+                            <p class="project-desc" data-i18n="proj_1_desc">Hisamitsu Vietnam Pharmaceutical – La Vela Saigon Hotel & Phu Quoc</p>
                         </div>
                     </div>
-                    <!-- Project 3 -->
-                    <div class="group bg-white/5 rounded-2xl overflow-hidden border border-cornsilk/10 hover:border-tiger transition-all">
-                        <div class="h-48 w-full overflow-hidden">
-                            <img src="assets/images/tiktok.jpg" alt="Creator playground by TikTokShop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+
+                    <div class="project-card reveal-scale delay-2">
+                        <div class="project-image">
+                            <img src="assets/images/vna.jpg" alt="Vietnam Airlines Exhibition at ITE HCMC 2024">
+                            <div class="project-image-overlay"></div>
                         </div>
-                        <div class="p-6">
-                            <h4 class="font-bold text-xl mb-2">Creator playground by TikTokShop</h4>
-                            <p class="text-gray-400 text-sm">2025</p>
-                        </div>
-                    </div>
-                    <!-- Project 4 -->
-                    <div class="group bg-white/5 rounded-2xl overflow-hidden border border-cornsilk/10 hover:border-tiger transition-all">
-                        <div class="h-48 w-full overflow-hidden">
-                            <img src="assets/images/vivocity.jpg" alt="10th Anniversary Celebration SC VivoCity" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        </div>
-                        <div class="p-6">
-                            <h4 class="font-bold text-xl mb-2">10th Anniversary Celebration SC VivoCity</h4>
-                            <p class="text-gray-400 text-sm">2025</p>
+                        <div class="project-info">
+                            <h4 class="project-title" data-i18n="proj_2_title">Vietnam Airlines Exhibition</h4>
+                            <p class="project-desc" data-i18n="proj_2_desc">ITE HCMC 2024 – September 2024 at SECC</p>
                         </div>
                     </div>
-                    <!-- Project 5 -->
-                    <div class="group bg-white/5 rounded-2xl overflow-hidden border border-cornsilk/10 hover:border-tiger transition-all">
-                        <div class="h-48 w-full overflow-hidden">
-                            <img src="assets/images/omo.jpg" alt="Launching OMO new product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+
+                    <div class="project-card reveal-scale delay-3">
+                        <div class="project-image">
+                            <img src="assets/images/tiktok.jpg" alt="Creator Playground by TikTok Shop">
+                            <div class="project-image-overlay"></div>
                         </div>
-                        <div class="p-6">
-                            <h4 class="font-bold text-xl mb-2">Launching OMO new product</h4>
-                            <p class="text-gray-400 text-sm">2026</p>
+                        <div class="project-info">
+                            <h4 class="project-title">Creator Playground by TikTok Shop</h4>
+                            <p class="project-desc">2025</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal-scale delay-4">
+                        <div class="project-image">
+                            <img src="assets/images/vivocity.jpg" alt="10th Anniversary Celebration SC VivoCity">
+                            <div class="project-image-overlay"></div>
+                        </div>
+                        <div class="project-info">
+                            <h4 class="project-title" data-i18n="proj_4_title">10th Anniversary – SC VivoCity</h4>
+                            <p class="project-desc">2025</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal-scale delay-5">
+                        <div class="project-image">
+                            <img src="assets/images/omo.jpg" alt="Launching OMO new product">
+                            <div class="project-image-overlay"></div>
+                        </div>
+                        <div class="project-info">
+                            <h4 class="project-title" data-i18n="proj_5_title">Launching OMO New Product</h4>
+                            <p class="project-desc" data-i18n="proj_5_desc">2026</p>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="mt-12 text-center">
-                <p class="text-tiger font-medium italic">And many other notable projects for Unilever, VFS Global, BritCham, Kingspan...</p>
-            </div>
+
+            <p class="projects-note reveal" data-i18n="proj_note" data-i18n-html="true">
+                <i class="fa-solid fa-sparkles"></i>
+                And many other notable projects for Unilever, VFS Global, BritCham, Kingspan...
+            </p>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-12 px-6 bg-olive text-cornsilk border-t border-cornsilk/10">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3 data-i18n="footer_thanks">Thank You</h3>
+                <p data-i18n="footer_desc">Looking forward to collaborating with you. Let's create memorable experiences together.</p>
+            </div>
+
             <div>
-                <h3 class="text-3xl font-bold mb-2">Thank You</h3>
-                <p class="text-tiger font-medium">Looking forward to collaborating with you.</p>
+                <h4 class="footer-heading" data-i18n="footer_links_title">Quick Links</h4>
+                <div class="footer-links">
+                    <a href="#about" class="footer-link" data-i18n="nav_about">About</a>
+                    <a href="#skills" class="footer-link" data-i18n="nav_skills">Skills</a>
+                    <a href="#experience" class="footer-link" data-i18n="nav_experience">Experience</a>
+                    <a href="#projects" class="footer-link" data-i18n="nav_projects">Projects</a>
+                </div>
             </div>
-            <div class="flex space-x-6 text-2xl">
-                <a href="https://www.linkedin.com/in/nh%C6%B0-nguy%E1%BB%87t-825174267/" target="_blank" class="hover:text-tiger transition-colors"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="mailto:nhunguyett03@gmail.com" class="hover:text-tiger transition-colors"><i class="fa-solid fa-envelope"></i></a>
-            </div>
-            <div class="text-sm opacity-60">
-                &copy; 2026 Nguyễn Thị Như Nguyệt. All rights reserved.
+
+            <div>
+                <h4 class="footer-heading" data-i18n="footer_connect">Connect</h4>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/nh%C6%B0-nguy%E1%BB%87t-825174267/" target="_blank" class="social-link" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:nhunguyett03@gmail.com" class="social-link" aria-label="Email">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </div>
             </div>
         </div>
+
+        <div class="footer-bottom">
+            <span data-i18n="footer_copy">&copy; 2026 Nguyễn Thị Như Nguyệt. All rights reserved.</span>
+            <span data-i18n="footer_crafted" data-i18n-html="true">Crafted with <i class="fa-solid fa-heart" style="color: #DDA15E;"></i></span>
+        </div>
     </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 
     <script src="js/main.js"></script>
 </body>
